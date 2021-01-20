@@ -21,3 +21,13 @@ az aks show `
 
 az network dns record-set list -g <resource-group> -z <zone-name> --output table # query FQDNs
 ```
+### Print addon-http-application-routing ingress activity
+```powershell
+kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
+```
+### Start stop cluster
+```powershell
+az aks stop --name <cluster-name> --resource-group <resource-group>
+az aks start --name <cluster-name> --resource-group <resource-group>
+az aks show -n <cluster-name> -g <resource-group> --query powerState # verify if the cluster is stopped/started
+```
