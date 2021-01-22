@@ -31,3 +31,13 @@ az aks stop --name <cluster-name> --resource-group <resource-group>
 az aks start --name <cluster-name> --resource-group <resource-group>
 az aks show -n <cluster-name> -g <resource-group> --query powerState # verify if the cluster is stopped/started
 ```
+### Force to rollout new image
+```powershell
+kubectl rollout restart deployment/<deployment-name> -n <namespace> # restart single deployment
+kubectl rollout restart deployments -n <namespace> # restart all deployments within namespace
+```
+
+### Apply k8s manifest
+```powershell
+kubectl apply -f deployment.yml
+```
