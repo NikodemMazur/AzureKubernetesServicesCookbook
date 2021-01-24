@@ -3,7 +3,19 @@
 - [AzureKubernetesServicesCookbook](#AzureKubernetesServicesCookbook)
     * [Table of contents](#Table-of-contents)
         + [Print the logs for a container](#Print-the-logs-for-a-container)
-        + [Get fully qualified domain names FQDN of the cluster](#Get-fully-qualified-domain-names-FQDN-of-the-cluster)
+        + [Query fully qualified domain names FQDN of the cluster](#Query-fully-qualified-domain-names-FQDN-of-the-cluster)
+        + [Print addon-http-application-routing ingress activity](#Print-addon-http-application-routing-ingress-activity)
+        + [Start stop cluster](#Start-stop-cluster)
+        + [Force to rollout new image](#Force-to-rollout-new-image)
+        + [Apply k8s manifest](#Apply-k8s-manifest)
+        + [Create AKS cluster](#Create-AKS-cluster)
+            - [Define variables for the configuration values](#Define-variables-for-the-configuration-values)
+            - [Create resources](#Create-resources)
+                - [Resource group](#Resource-group)
+            - [Azure Container Registry](#Azure-Container-Registry)
+            - [Virtual network (required to use k8s network policies)](#Virtual-network-(required-to-use-k8s-network-policies))
+            - [AKS Cluster](#AKS-Cluster)
+    * [Link AKS with kubectl](#Link-AKS-with-kubectl)
 ### Print the logs for a container
 ```powershell
 kubectl get pods -n <namespace> # list pods in a namespace
