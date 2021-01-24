@@ -22,6 +22,7 @@ kubectl get pods -n <namespace> # list pods in a namespace
 kubectl logs <pod> -n <namespace> -c <container> # print the logs for a container
 ```
 ### Query fully qualified domain names FQDN of the cluster
+DNS zone name is needed to setup k8s ingresses
 ```powershell
 az network dns zone list -o table # query the Azure DNS zone list
 
