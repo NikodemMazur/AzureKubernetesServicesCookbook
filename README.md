@@ -42,7 +42,7 @@ kubectl rollout restart deployments -n <namespace> # restart all deployments wit
 kubectl apply -f deployment.yml
 ```
 ### Create AKS cluster
-## Define variables for the configuration values
+#### Define variables for the configuration values
 ```powershell
 $rgName = ...
 $aksName = ...
@@ -61,12 +61,12 @@ $aksVersion=$(az aks get-versions `
   --query 'orchestrators[-1].orchestratorVersion' `
   --output tsv)
 ```
-## Create resources
-### Resource group
+#### Create resources
+##### Resource group
 ```powershell
 az group create --name $rgName --location westeurope # create RG
 ```
-### Azure Container Registry
+#### Azure Container Registry
 ```powershell
 # create ACR
 az acr create `
@@ -78,7 +78,7 @@ az acr list ` # show loginServer (needed when configuring pipeline in Azure DevO
  --query "[].{loginServer: loginServer}" `
  --output table
  ```
- ### Virtual network (required to use k8s network policies)
+ #### Virtual network (required to use k8s network policies)
 ```powershell
 # create a virtual network and subnet
 az network vnet create `
@@ -98,7 +98,7 @@ az role assignment create --assignee $spId --scope $vnetId --role Contributor
 # get the virtual network subnet resource ID
 $subnetId = $(az network vnet subnet show --resource-group $rgName --vnet-name $vnName --name $aksSubnetName --query id -o tsv)
 ```
- ### AKS Cluster
+ #### AKS Cluster
 ```powershell
 az aks create `
     --resource-group $rgName `
@@ -116,7 +116,7 @@ az aks create `
     --docker-bridge-address 172.17.0.1/16 `
     --vnet-subnet-id $subnetId `
     --service-principal $spId `
-    --client-secret $spPassword `
+    --client-secret $spPassword
 ```
 - `--node-count 1` - virtual machines count
 - `--enable-addons http_application_routing,monitoring` - http ingress (not production ready) and container health monitoring add-ons
