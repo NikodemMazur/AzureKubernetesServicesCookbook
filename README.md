@@ -15,7 +15,7 @@
                 - [Azure Container Registry](#Azure-Container-Registry)
                 - [Virtual network (required to use k8s network policies)](#Virtual-network-(required-to-use-k8s-network-policies))
                 - [AKS Cluster](#AKS-Cluster)
-    * [Link AKS with kubectl](#Link-AKS-with-kubectl)
+            - [Link AKS with kubectl](#Link-AKS-with-kubectl)
 ### Print the logs for a container
 ```powershell
 kubectl get pods -n <namespace> # list pods in a namespace
@@ -141,7 +141,7 @@ az aks create `
 - `--docker-bridge-address 172.17.0.1/16` - IP address and netmask for the Docker bridge
 - `--vnet-subnet-id $subnetId` - external vn is required to use k8s network policies
 
-## Link AKS with kubectl
+#### Link AKS with kubectl
 ```powershell
 az aks get-credentials ` # this command will add an entry to your ~/.kube/config file, which holds all the information to access your clusters
     --name $aksName `
