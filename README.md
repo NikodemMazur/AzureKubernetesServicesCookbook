@@ -121,6 +121,7 @@ az aks create `
     --generate-ssh-keys `
     --node-vm-size Standard_B2s `
     --attach-acr $registryName `
+    --kubernetes-version $aksVersion `
     --network-plugin azure `
     --network-policy azure `
     --service-cidr 10.0.0.0/16 `
@@ -134,6 +135,7 @@ az aks create `
 - `--enable-addons http_application_routing,monitoring` - http ingress (not production ready) and container health monitoring add-ons
 - `--generate-ssh-keys` - create SSH key pair to access AKS nodes
 - `--attach-acr $registryName` - attach ACR (you can also do it after the cluster creation with az aks update -n <cluster-name> -g <rg-name> --attach-acr <acr-name>)
+- `--kubernetes-version $aksVersion` - latest k8s version
 - `--network-plugin azure` - required to use k8s network policies
 - `--network-policy azure` - same as above
 - `--service-cidr 10.0.0.0/16` - IP range from which to assign service cluster IPs
