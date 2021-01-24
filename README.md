@@ -140,7 +140,6 @@ az aks create `
 - `--dns-service-ip 10.0.0.10` - Kubernetes DNS service
 - `--docker-bridge-address 172.17.0.1/16` - IP address and netmask for the Docker bridge
 - `--vnet-subnet-id $subnetId` - external vn is required to use k8s network policies
-
 #### Link AKS with kubectl
 ```powershell
 az aks get-credentials ` # this command will add an entry to your ~/.kube/config file, which holds all the information to access your clusters
