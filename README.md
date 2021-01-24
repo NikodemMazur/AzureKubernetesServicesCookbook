@@ -12,9 +12,9 @@
             - [Define variables for the configuration values](#Define-variables-for-the-configuration-values)
             - [Create resources](#Create-resources)
                 - [Resource group](#Resource-group)
-            - [Azure Container Registry](#Azure-Container-Registry)
-            - [Virtual network (required to use k8s network policies)](#Virtual-network-(required-to-use-k8s-network-policies))
-            - [AKS Cluster](#AKS-Cluster)
+                - [Azure Container Registry](#Azure-Container-Registry)
+                - [Virtual network (required to use k8s network policies)](#Virtual-network-(required-to-use-k8s-network-policies))
+                - [AKS Cluster](#AKS-Cluster)
     * [Link AKS with kubectl](#Link-AKS-with-kubectl)
 ### Print the logs for a container
 ```powershell
@@ -78,7 +78,7 @@ $aksVersion=$(az aks get-versions `
 ```powershell
 az group create --name $rgName --location westeurope # create RG
 ```
-#### Azure Container Registry
+##### Azure Container Registry
 ```powershell
 # create ACR
 az acr create `
@@ -90,7 +90,7 @@ az acr list ` # show loginServer (needed when configuring pipeline in Azure DevO
  --query "[].{loginServer: loginServer}" `
  --output table
  ```
- #### Virtual network (required to use k8s network policies)
+ ##### Virtual network (required to use k8s network policies)
 ```powershell
 # create a virtual network and subnet
 az network vnet create `
@@ -110,7 +110,7 @@ az role assignment create --assignee $spId --scope $vnetId --role Contributor
 # get the virtual network subnet resource ID
 $subnetId = $(az network vnet subnet show --resource-group $rgName --vnet-name $vnName --name $aksSubnetName --query id -o tsv)
 ```
- #### AKS Cluster
+ ##### AKS Cluster
 ```powershell
 az aks create `
     --resource-group $rgName `
